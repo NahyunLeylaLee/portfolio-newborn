@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const ContactSection = () => {
   return (
-    <section className="min-h-screen bg-page-bg flex items-center justify-center px-6 py-20">
+    <section className="min-h-screen bg-page-bg flex items-center justify-center px-6 pt-40 pb-20 md:pt-20">
       <div className="max-w-6xl mx-auto">
         <div className="bg-white rounded-3xl shadow-lg p-12">
         <motion.div

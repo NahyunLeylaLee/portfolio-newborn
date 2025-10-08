@@ -18,6 +18,9 @@ function App() {
     let isScrolling = false;
     const sections = sectionsRef.current;
 
+    // Check if device is mobile (width < 768px, matching Tailwind's md breakpoint)
+    const isMobile = () => window.innerWidth < 768;
+
     const scrollToSection = (index) => {
       if (index < 0 || index >= sections.length || isScrolling) return;
       
@@ -38,6 +41,9 @@ function App() {
     window.scrollToSection = scrollToSection;
 
     const handleWheel = (e) => {
+      // Disable section snapping on mobile
+      if (isMobile()) return;
+      
       e.preventDefault();
       
       if (isScrolling) return;
@@ -54,6 +60,9 @@ function App() {
     };
 
     const handleKeyDown = (e) => {
+      // Disable section snapping on mobile
+      if (isMobile()) return;
+      
       if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
         e.preventDefault();
         scrollToSection(currentSection + 1);

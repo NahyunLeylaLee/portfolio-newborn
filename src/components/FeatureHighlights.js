@@ -63,7 +63,7 @@ const FeatureHighlights = () => {
   };
 
   return (
-    <section className="min-h-screen bg-page-bg flex items-center justify-center px-6">
+    <section className="min-h-screen bg-page-bg flex items-center justify-center px-6 pt-40 pb-20 md:pt-20">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

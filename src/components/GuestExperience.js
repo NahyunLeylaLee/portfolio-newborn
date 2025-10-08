@@ -5,7 +5,7 @@ const GuestExperience = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-page-bg flex items-center justify-center px-6 py-20">
+      <section className="bg-page-bg flex items-center justify-center px-6 pt-40 pb-20 md:pt-20">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -36,7 +36,7 @@ const GuestExperience = () => {
       </section>
 
       {/* Guest Experience Section */}
-      <section className="bg-page-bg flex items-center justify-center px-6 py-20">
+      <section className="bg-page-bg flex items-center justify-center px-6 pt-24 pb-20 md:py-20">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Screenshot placeholder */}
           <motion.div
@@ -46,7 +46,7 @@ const GuestExperience = () => {
             viewport={{ once: true }}
             className="order-2 lg:order-1"
           >
-            <div className="bg-page-bg rounded-2xl shadow-lg p-4 border border-brand-200">
+            <div className="bg-white rounded-2xl shadow-lg p-4 border border-brand-200">
               <div className="aspect-video rounded-xl overflow-hidden">
                 <img 
                   src="/images/newborn track.jpg" 

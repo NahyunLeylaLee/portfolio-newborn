@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const AdminExperience = () => {
   return (
-    <section className="min-h-screen bg-page-bg flex items-center justify-center px-6 py-20">
+    <section className="min-h-screen bg-page-bg flex items-center justify-center px-6 pt-40 pb-20 md:pt-20">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* Left side - Dashboard screenshot */}
         <motion.div

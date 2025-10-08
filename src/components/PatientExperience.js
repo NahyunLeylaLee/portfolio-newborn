@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const PatientExperience = () => {
   return (
-    <section className="min-h-screen bg-page-bg flex items-center justify-center px-6 py-20">
+    <section className="min-h-screen bg-page-bg flex items-center justify-center px-6 pt-40 pb-20 md:pt-20">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* Left side - Content */}
         <motion.div
@@ -21,14 +21,14 @@ const PatientExperience = () => {
           >
             Patient Experience
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg text-body-text leading-relaxed"
           >
-            Patients (parents) receive health surveys from doctors and submit updates about their newborn's condition. 
+            Patients (parents) receive health surveys from doctors and submit updates about their newborn's condition.
             Try filling out a sample survey to experience the process.
           </motion.p>
 
@@ -66,7 +66,7 @@ const PatientExperience = () => {
                 <div className="w-3 h-3 bg-brand-600 rounded-full"></div>
                 <h3 className="font-semibold text-heading-dark">Patient Sample Survey Preview</h3>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -83,23 +83,23 @@ const PatientExperience = () => {
                     <option>Having difficulties</option>
                   </select>
                 </div>
-                
+
                 <div className="bg-brand-50 rounded-lg p-4">
                   <label className="block text-sm font-medium text-body-text mb-2">
                     Sleep pattern
                   </label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     placeholder="e.g., 3-4 hours at night"
                     className="w-full p-3 border border-brand-200 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                   />
                 </div>
-                
+
                 <div className="bg-brand-50 rounded-lg p-4">
                   <label className="block text-sm font-medium text-body-text mb-2">
                     Any concerns?
                   </label>
-                  <textarea 
+                  <textarea
                     placeholder="Describe any concerns or observations..."
                     className="w-full p-3 border border-brand-200 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent h-20"
                   />

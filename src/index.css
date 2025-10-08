@@ -24,18 +24,29 @@ body {
 }
 
 .section-container {
-  height: 100vh;
+  min-height: 100vh;
   scroll-snap-align: start;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 80px; /* Account for fixed header */
 }
 
 .scroll-container {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100vh;
+}
+
+/* Disable scroll snap on mobile */
+@media (max-width: 767px) {
+  .scroll-container {
+    scroll-snap-type: none;
+  }
+  
+  .section-container {
+    scroll-snap-align: none;
+    min-height: auto;
+  }
 }
 
 /* Custom scrollbar */

@@ -10,6 +10,7 @@ module.exports = {
         'page-bg': '#FDFBF7', // Very light, creamy beige (main background)
         'heading-dark': '#2D1B1B', // Dark brown for main headings
         'body-text': '#5A4A3A',    // Muted brown/gray for body text
+        'card-color': '#FDF9F6', // Pink beige inside of Card 
 
         // Primary brand color: Dark Brown/Amber (for buttons, strong accents, main elements)
         brand: {
