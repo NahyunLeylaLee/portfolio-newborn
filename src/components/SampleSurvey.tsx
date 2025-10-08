@@ -62,6 +62,10 @@ const AnswerComponent: React.FC<AnswerComponentProps> = ({
   onAnswerChange,
 }) => {
   const type = question.type;
+  const [addressSuggestions, setAddressSuggestions] = useState<any[]>([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null);
 
   // Short Answer
   if (type === QuestionType.SHORT_ANSWER) {
@@ -416,25 +420,158 @@ const AnswerComponent: React.FC<AnswerComponentProps> = ({
 
   // Address Answer
   if (type === QuestionType.ADDRESS_ANSWER) {
-    return (
-      <div className="mt-4 space-y-2">
-        <div className="flex gap-2">
-          <input
-            type="text"
-            className="border-2 border-brand-300 rounded-lg p-3 flex-1 outline-none focus:border-brand-800"
-            placeholder="Address"
-            value={answer?.answerText || ''}
-            onChange={(e) =>
-              onAnswerChange({
-                questionId: question.id,
-                answerText: e.target.value,
-              })
+    const searchAddress = async (query: string) => {
+      if (!query || query.trim().length < 1) {
+        setAddressSuggestions([]);
+        setShowSuggestions(false);
+        return;
+      }
+
+      setIsSearching(true);
+      setShowSuggestions(true);
+
+      try {
+        // Using Nominatim API (OpenStreetMap) - Free and no API key required
+        const response = await fetch(
+          `https://nominatim.openstreetmap.org/search?format=json&countrycodes=ca&q=${encodeURIComponent(query)}&limit=5&addressdetails=1`,
+          {
+            headers: {
+              'User-Agent': 'NewbornTrack Demo App'
             }
-          />
-          <button className="border-2 border-brand-800 text-brand-800 rounded-lg px-6 py-3 hover:bg-brand-50">
-            📍 Find Address
+          }
+        );
+        const data = await response.json();
+        
+        // Format addresses to show only City, Province, Country
+        const formattedData = data.map((item: any) => {
+          const addr = item.address;
+          const city = addr?.city || addr?.town || addr?.village || addr?.municipality;
+          const province = addr?.state || addr?.province;
+          const country = addr?.country;
+          
+          const parts = [];
+          if (city) parts.push(city);
+          if (province) parts.push(province);
+          if (country) parts.push(country);
+          
+          return {
+            ...item,
+            formatted_address: parts.join(', ') || item.display_name
+          };
+        });
+        
+        setAddressSuggestions(formattedData);
+      } catch (error) {
+        console.error('Error searching address:', error);
+        setAddressSuggestions([]);
+      } finally {
+        setIsSearching(false);
+      }
+    };
+
+    const handleAddressChange = (value: string) => {
+      onAnswerChange({
+        questionId: question.id,
+        answerText: value,
+      });
+
+      // Clear previous timeout
+      if (searchTimeout) {
+        clearTimeout(searchTimeout);
+      }
+
+      // Set new timeout for debounced search
+      if (value.trim().length >= 1) {
+        const timeout = setTimeout(() => {
+          searchAddress(value);
+        }, 500); // Wait 500ms after user stops typing
+        setSearchTimeout(timeout);
+      } else {
+        setAddressSuggestions([]);
+        setShowSuggestions(false);
+      }
+    };
+
+    const selectAddress = (suggestion: any) => {
+      onAnswerChange({
+        questionId: question.id,
+        answerText: suggestion.formatted_address || suggestion.display_name,
+      });
+      setShowSuggestions(false);
+      setAddressSuggestions([]);
+    };
+
+    const clearAddress = () => {
+      onAnswerChange({
+        questionId: question.id,
+        answerText: '',
+      });
+      setShowSuggestions(false);
+      setAddressSuggestions([]);
+      if (searchTimeout) {
+        clearTimeout(searchTimeout);
+      }
+    };
+
+    return (
+      <div className="mt-4 space-y-2 relative">
+        <div className="flex gap-2">
+          <div className="flex-1 relative">
+            <input
+              type="text"
+              className="border-2 border-brand-300 rounded-lg p-3 w-full pr-10 outline-none focus:border-brand-800"
+              placeholder="e.g., Toronto, Vancouver, Montreal"
+              value={answer?.answerText || ''}
+              onChange={(e) => handleAddressChange(e.target.value)}
+            />
+            {isSearching && (
+              <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                <span className="text-brand-800">⏳</span>
+              </div>
+            )}
+            {!isSearching && answer?.answerText && (
+              <button
+                onClick={clearAddress}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+              </button>
+            )}
+          </div>
+          <button 
+            onClick={() => searchAddress(answer?.answerText || '')}
+            disabled={isSearching || !answer?.answerText || answer.answerText.trim().length < 1}
+            className="border-2 border-brand-800 text-brand-800 rounded-lg px-6 py-3 hover:bg-brand-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+          >
+            📍 Find
           </button>
         </div>
+        
+        {/* Helper Text */}
+        <div className="text-xs text-body-text">
+          💡 Search for cities in Canada (e.g., Toronto, Vancouver, Montreal)
+        </div>
+        
+        {/* Address Suggestions Dropdown */}
+        {showSuggestions && addressSuggestions.length > 0 && (
+          <div className="absolute z-10 w-full bg-white border-2 border-brand-300 rounded-lg shadow-xl max-h-60 overflow-y-auto mt-1">
+            {addressSuggestions.map((suggestion, index) => (
+              <button
+                key={index}
+                onClick={() => selectAddress(suggestion)}
+                className="w-full text-left p-3 hover:bg-brand-50 border-b border-brand-200 last:border-b-0 transition-colors"
+              >
+                <div className="text-sm text-heading-dark">{suggestion.formatted_address}</div>
+              </button>
+            ))}
+          </div>
+        )}
+        
+        {showSuggestions && addressSuggestions.length === 0 && !isSearching && answer?.answerText && answer.answerText.trim().length >= 1 && (
+          <div className="text-sm text-body-text">No cities found. Try a different search.</div>
+        )}
       </div>
     );
   }
