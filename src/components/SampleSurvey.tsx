@@ -147,7 +147,7 @@ const AnswerComponent: React.FC<AnswerComponentProps> = ({
   // Checkboxes
   if (type === QuestionType.CHECKBOXES) {
     const selectedIds = answer?.selectedOptionIds || [];
-    
+
     return (
       <div className="mt-4 space-y-2">
         {options.map((option) => (
@@ -676,7 +676,7 @@ const SampleSurvey: React.FC = () => {
     }
 
     alert('Survey submitted successfully!');
-    
+
     // Return to template selection
     setIsInitialized(false);
     setAnswers([]);
@@ -688,7 +688,7 @@ const SampleSurvey: React.FC = () => {
       .filter((q) => q.isRequired)
       .filter((q) => answers.some((a) => a.questionId === q.id && (a.answerText || a.optionId || a.selectedOptionIds?.length)))
       .length;
-    
+
     return totalRequired > 0 ? (answeredRequired / totalRequired) * 100 : 100;
   };
 
@@ -697,7 +697,7 @@ const SampleSurvey: React.FC = () => {
       <div className="max-w-3xl mx-auto">
         {/* Back to Main Button */}
         <div className="mb-6">
-          <button 
+          <button
             onClick={handleBackToMain}
             className="inline-flex items-center gap-2 text-brand-800 hover:text-brand-900 font-semibold transition-colors cursor-pointer"
           >
@@ -797,7 +797,7 @@ const SampleSurvey: React.FC = () => {
                       {question.isRequired && <span className="text-red-600 ml-1">*</span>}
                     </h3>
                   </div>
-                  
+
                   <AnswerComponent
                     question={question}
                     options={options.filter((o) => o.questionId === question.id)}
