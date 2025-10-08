@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const PatientExperience = () => {
   return (
-    <section className="min-h-screen bg-page-bg flex items-center justify-center px-6 pt-40 pb-20 md:pt-20">
+    <section className="min-h-screen bg-page-bg flex items-center justify-center px-6 pt-16 pb-12 md:pt-20 md:pb-20">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* Left side - Content */}
         <motion.div
@@ -12,7 +12,7 @@ const PatientExperience = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="space-y-6"
+          className="space-y-6 text-center lg:text-left"
         >
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

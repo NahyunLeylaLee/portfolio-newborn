@@ -5,7 +5,7 @@ const GuestExperience = () => {
   return (
     <div className="min-h-screen">
       {/* Guest Section */}
-      <section className="bg-page-bg flex items-center justify-center px-6 pt-40 pb-20 md:pt-20">
+      <section className="bg-page-bg flex items-center justify-center px-6 pt-24 pb-12 md:pt-20 md:pb-20">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -36,7 +36,7 @@ const GuestExperience = () => {
       </section>
 
       {/* Guest Experience Section */}
-      <section className="bg-page-bg flex items-center justify-center px-6 pt-24 pb-20 md:py-20">
+      <section className="bg-page-bg flex items-center justify-center px-6 pt-12 pb-12 md:py-20">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Screenshot placeholder */}
           <motion.div
@@ -63,7 +63,7 @@ const GuestExperience = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="order-1 lg:order-2 space-y-6"
+            className="order-1 lg:order-2 space-y-6 text-center lg:text-left"
           >
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -73,16 +73,16 @@ const GuestExperience = () => {
             >
               Guest Experience
             </motion.h2>
-
+            
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg text-body-text leading-relaxed"
             >
-              Guests can explore public information, research content, and hospital resources.
+              Guests can explore public information, research content, and hospital resources. 
               Visit the live site to see how parents and doctors interact with the system in real-world use.
-              <br />* Only written in Korean
+              <br />* Available only in Korean.
             </motion.p>
 
             <motion.div

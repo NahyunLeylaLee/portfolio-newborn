@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const AdminExperience = () => {
   return (
-    <section className="min-h-screen bg-page-bg flex items-center justify-center px-6 pt-40 pb-20 md:pt-20">
+    <section className="min-h-screen bg-page-bg flex items-center justify-center px-6 pt-16 pb-12 md:pt-20 md:pb-20">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* Left side - Dashboard screenshot */}
         <motion.div
@@ -33,7 +33,7 @@ const AdminExperience = () => {
           viewport={{ once: true }}
           className="order-1 lg:order-2"
         >
-          <div className="space-y-6">
+          <div className="space-y-6 text-center lg:text-left">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -42,14 +42,14 @@ const AdminExperience = () => {
             >
               Admin Experience
             </motion.h2>
-
+            
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg text-body-text leading-relaxed"
             >
-              Hospital administrators can create customized surveys to send to parents.
+              Hospital administrators can create customized surveys to send to parents. 
               Try creating a survey with this simplified demo.
             </motion.p>
 
