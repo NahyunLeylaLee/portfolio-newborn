@@ -7,6 +7,7 @@ import AdminExperience from './components/AdminExperience';
 import FeatureHighlights from './components/FeatureHighlights';
 import ContactSection from './components/ContactSection';
 import SurveyCreator from './components/SurveyCreator';
+import SampleSurvey from './components/SampleSurvey';
 
 function MainPage() {
   const containerRef = useRef(null);
@@ -119,6 +120,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/survey-creator" element={<SurveyCreator />} />
+        <Route path="/sample-survey" element={<SampleSurvey />} />
       </Routes>
     </Router>
   );

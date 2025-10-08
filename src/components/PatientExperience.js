@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const PatientExperience = () => {
   return (
@@ -37,13 +38,15 @@ const PatientExperience = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-brand-800 hover:bg-brand-900 text-white px-12 py-4 rounded-full font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
-            >
-              Try Sample Survey
-            </motion.button>
+            <Link to="/sample-survey">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-brand-800 hover:bg-brand-900 text-white px-12 py-4 rounded-full font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                Try Sample Survey
+              </motion.button>
+            </Link>
           </motion.div>
         </motion.div>
 
