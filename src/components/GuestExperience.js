@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const GuestExperience = () => {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* Guest Section */}
       <section className="bg-page-bg flex items-center justify-center px-6 pt-40 pb-20 md:pt-20">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
@@ -50,7 +50,7 @@ const GuestExperience = () => {
               <div className="aspect-video rounded-xl overflow-hidden">
                 <img
                   src="/portfolio-newborn/images/newborn track.png"
-                  alt="NewbornTrack website screenshot showing header with logo, navigation menu, hero section with baby hand image, and recent news cards"
+                  alt="NewbornTrack website screenshot showing header with logo, navigation menu, guest section with baby hand image, and recent news cards"
                   className="w-full h-full object-contain"
                 />
               </div>
