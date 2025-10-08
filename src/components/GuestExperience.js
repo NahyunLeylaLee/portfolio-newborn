@@ -28,7 +28,7 @@ const GuestExperience = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-xl text-body-text max-w-3xl mx-auto leading-relaxed"
             >
-              A hospital health-tracking platform used at Bundang CHA Hospital.
+              A newborn health-tracking platform used at Bundang CHA Hospital.
               Experience the system from three perspectives: <strong>Guest</strong>, <strong>Patient</strong>, and <strong>Admin</strong>.
             </motion.p>
           </motion.div>
@@ -81,7 +81,7 @@ const GuestExperience = () => {
               className="text-lg text-body-text leading-relaxed"
             >
               Guests can explore public information, research content, and hospital resources.
-              Visit the live site to see how parents and doctors interact with the system in real use.
+              Visit the live site to see how parents and doctors interact with the system in real-world use.
               <br />* Only written in Korean
             </motion.p>
 
