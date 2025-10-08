@@ -15,8 +15,8 @@ const AdminExperience = () => {
         >
           <div className="bg-white rounded-2xl shadow-xl p-8 border border-brand-100">
             <div className="aspect-video rounded-xl overflow-hidden">
-              <img 
-                src="/images/newborn survey create.jpg" 
+              <img
+                src="/portfolio-newborn/images/newborn survey create.jpg"
                 alt="Admin Dashboard Screenshot showing survey creation interface"
                 className="w-full h-full object-cover"
               />
@@ -41,14 +41,14 @@ const AdminExperience = () => {
             >
               Admin Experience
             </motion.h2>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg text-body-text leading-relaxed"
             >
-              Hospital administrators can create customized surveys to send to parents. 
+              Hospital administrators can create customized surveys to send to parents.
               Try creating a survey with this simplified demo.
             </motion.p>
 

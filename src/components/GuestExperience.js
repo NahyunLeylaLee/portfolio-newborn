@@ -49,7 +49,7 @@ const GuestExperience = () => {
             <div className="bg-white rounded-2xl shadow-lg border border-brand-200">
               <div className="aspect-video rounded-xl overflow-hidden">
                 <img
-                  src="/images/newborn track.png"
+                  src="/portfolio-newborn/images/newborn track.png"
                   alt="NewbornTrack website screenshot showing header with logo, navigation menu, hero section with baby hand image, and recent news cards"
                   className="w-full h-full object-contain"
                 />
