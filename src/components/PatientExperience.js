@@ -78,32 +78,45 @@ const PatientExperience = () => {
               >
                 <div className="bg-brand-50 rounded-lg p-4">
                   <label className="block text-sm font-medium text-body-text mb-2">
-                    How is your baby's feeding schedule?
-                  </label>
-                  <select className="w-full p-3 border border-brand-200 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent">
-                    <option>Regular</option>
-                    <option>Irregular</option>
-                    <option>Having difficulties</option>
-                  </select>
-                </div>
-
-                <div className="bg-brand-50 rounded-lg p-4">
-                  <label className="block text-sm font-medium text-body-text mb-2">
-                    Sleep pattern
+                    What is your name? <span className="text-red-600">*</span>
                   </label>
                   <input
                     type="text"
-                    placeholder="e.g., 3-4 hours at night"
+                    placeholder="Your answer"
                     className="w-full p-3 border border-brand-200 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                   />
                 </div>
 
                 <div className="bg-brand-50 rounded-lg p-4">
                   <label className="block text-sm font-medium text-body-text mb-2">
-                    Any concerns?
+                    What is your gender? <span className="text-red-600">*</span>
+                  </label>
+                  <div className="space-y-2">
+                    <label className="flex items-center cursor-pointer p-2 hover:bg-white rounded">
+                      <input
+                        type="radio"
+                        name="gender"
+                        className="w-4 h-4 mr-3 accent-brand-800"
+                      />
+                      <span className="text-body-text">Male</span>
+                    </label>
+                    <label className="flex items-center cursor-pointer p-2 hover:bg-white rounded">
+                      <input
+                        type="radio"
+                        name="gender"
+                        className="w-4 h-4 mr-3 accent-brand-800"
+                      />
+                      <span className="text-body-text">Female</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div className="bg-brand-50 rounded-lg p-4">
+                  <label className="block text-sm font-medium text-body-text mb-2">
+                    Any additional comments?
                   </label>
                   <textarea
-                    placeholder="Describe any concerns or observations..."
+                    placeholder="Your answer"
                     className="w-full p-3 border border-brand-200 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent h-20"
                   />
                 </div>
