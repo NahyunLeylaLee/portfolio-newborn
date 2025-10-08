@@ -124,7 +124,7 @@ const QuestionComponent: React.FC<QuestionComponentProps> = ({
       return (
         <div className="mt-4">
           {/* Min/Max Selection */}
-          <div className="flex items-center gap-4 mb-4">
+          <div className="flex items-center justify-center md:justify-start gap-4 mb-4">
             <select
               className="border border-brand-300 rounded-lg px-3 py-2 focus:border-brand-800 focus:outline-none"
               value={currentMin}
@@ -150,24 +150,13 @@ const QuestionComponent: React.FC<QuestionComponentProps> = ({
             </select>
           </div>
           
-          {/* Scale Display */}
-          <div className="flex gap-3 justify-center my-6">
-            {Array.from({ length: currentMax - currentMin + 1 }, (_, i) => currentMin + i).map((num) => (
-              <div key={num} className="flex flex-col items-center">
-                <div className="w-10 h-10 rounded-full border-2 border-brand-600 flex items-center justify-center text-sm font-medium text-brand-800">
-                  {num}
-                </div>
-              </div>
-            ))}
-          </div>
-          
           {/* Labels */}
           <div className="space-y-3">
             <div className="flex items-center gap-3">
               <span className="text-sm text-body-text w-8">{currentMin}</span>
               <input
                 type="text"
-                className="border border-brand-300 rounded-lg px-3 py-2 flex-1 focus:border-brand-800 focus:outline-none"
+                className="border border-brand-300 rounded-lg px-3 py-2 w-full md:w-1/2 focus:border-brand-800 focus:outline-none"
                 placeholder="Label (optional)"
                 value={question.minLabel || ''}
                 onChange={(e) => onUpdateQuestion({ minLabel: e.target.value })}
@@ -177,7 +166,7 @@ const QuestionComponent: React.FC<QuestionComponentProps> = ({
               <span className="text-sm text-body-text w-8">{currentMax}</span>
               <input
                 type="text"
-                className="border border-brand-300 rounded-lg px-3 py-2 flex-1 focus:border-brand-800 focus:outline-none"
+                className="border border-brand-300 rounded-lg px-3 py-2 w-full md:w-1/2 focus:border-brand-800 focus:outline-none"
                 placeholder="Label (optional)"
                 value={question.maxLabel || ''}
                 onChange={(e) => onUpdateQuestion({ maxLabel: e.target.value })}
@@ -195,7 +184,7 @@ const QuestionComponent: React.FC<QuestionComponentProps> = ({
 
       return (
         <div className="mt-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-4">
             <div>
               <div className="font-semibold mb-2 text-heading-dark">Rows</div>
               {rows.map((row) => (
@@ -332,16 +321,9 @@ const QuestionComponent: React.FC<QuestionComponentProps> = ({
       tabIndex={0}
     >
       {/* Question Header */}
-      <div className="flex gap-4 mb-4">
-        <input
-          type="text"
-          className="border-b-2 border-brand-300 focus:border-brand-800 outline-none flex-1 text-lg p-2 text-heading-dark"
-          value={question.title}
-          onChange={(e) => onUpdateQuestion({ title: e.target.value })}
-          placeholder="Question title"
-        />
+      <div className="flex flex-col md:flex-row gap-4 mb-4">
         <select
-          className="border border-brand-300 rounded-lg px-3 py-2 text-body-text focus:border-brand-800 focus:outline-none"
+          className="border border-brand-300 rounded-lg px-3 py-2 text-body-text focus:border-brand-800 focus:outline-none md:min-w-[200px] md:order-2"
           value={question.type}
           onChange={(e) => onUpdateQuestion({ type: e.target.value as QuestionType })}
         >
@@ -351,6 +333,13 @@ const QuestionComponent: React.FC<QuestionComponentProps> = ({
             </option>
           ))}
         </select>
+        <input
+          type="text"
+          className="border-b-2 border-brand-300 focus:border-brand-800 outline-none flex-1 text-lg p-2 text-heading-dark md:order-1"
+          value={question.title}
+          onChange={(e) => onUpdateQuestion({ title: e.target.value })}
+          placeholder="Question title"
+        />
       </div>
 
       {/* Options */}
@@ -468,7 +457,7 @@ const SurveyCreator: React.FC = () => {
           },
         ];
         newOptions = [
-          { surveyId: 'demo-survey', questionId: 'q-1', order: 1, title: 'Option 1', isRow: true },
+          { surveyId: 'demo-survey', questionId: 'q-1', order: 1, title: '', isRow: true },
         ];
         break;
 
@@ -483,7 +472,7 @@ const SurveyCreator: React.FC = () => {
             id: 'q-1',
             surveyId: 'demo-survey',
             type: QuestionType.SHORT_ANSWER,
-            title: 'What is your name?',
+            title: '',
             order: 1,
             isRequired: true,
             basedOnAnswer: false,
@@ -494,7 +483,7 @@ const SurveyCreator: React.FC = () => {
             id: 'q-2',
             surveyId: 'demo-survey',
             type: QuestionType.MULTIPLE_CHOICE,
-            title: 'What is your gender?',
+            title: '',
             order: 2,
             isRequired: true,
             basedOnAnswer: false,
@@ -505,7 +494,7 @@ const SurveyCreator: React.FC = () => {
             id: 'q-3',
             surveyId: 'demo-survey',
             type: QuestionType.LONG_ANSWER,
-            title: 'Any additional comments?',
+            title: '',
             order: 3,
             isRequired: false,
             basedOnAnswer: false,
@@ -514,10 +503,8 @@ const SurveyCreator: React.FC = () => {
           },
         ];
         newOptions = [
-          { surveyId: 'demo-survey', questionId: 'q-1', order: 1, title: 'Short answer', isRow: true },
-          { surveyId: 'demo-survey', questionId: 'q-2', order: 1, title: 'Male', isRow: true },
-          { surveyId: 'demo-survey', questionId: 'q-2', order: 2, title: 'Female', isRow: true },
-          { surveyId: 'demo-survey', questionId: 'q-3', order: 1, title: 'Long answer', isRow: true },
+          { surveyId: 'demo-survey', questionId: 'q-2', order: 1, title: '', isRow: true },
+          { surveyId: 'demo-survey', questionId: 'q-2', order: 2, title: '', isRow: true },
         ];
         break;
 
@@ -532,18 +519,18 @@ const SurveyCreator: React.FC = () => {
             id: 'q-1',
             surveyId: 'demo-survey',
             type: QuestionType.LINEAR_SCALE,
-            title: 'How satisfied are you overall?',
+            title: '',
             order: 1,
             isRequired: true,
             basedOnAnswer: false,
-            minLabel: 'Very Dissatisfied',
-            maxLabel: 'Very Satisfied',
+            minLabel: '',
+            maxLabel: '',
           },
           {
             id: 'q-2',
             surveyId: 'demo-survey',
             type: QuestionType.CHECKBOXES,
-            title: 'What did you like? (Select all that apply)',
+            title: '',
             order: 2,
             isRequired: false,
             basedOnAnswer: false,
@@ -554,7 +541,7 @@ const SurveyCreator: React.FC = () => {
             id: 'q-3',
             surveyId: 'demo-survey',
             type: QuestionType.LONG_ANSWER,
-            title: 'How can we improve?',
+            title: '',
             order: 3,
             isRequired: false,
             basedOnAnswer: false,
@@ -568,10 +555,9 @@ const SurveyCreator: React.FC = () => {
           { surveyId: 'demo-survey', questionId: 'q-1', order: 3, title: '3', isRow: true },
           { surveyId: 'demo-survey', questionId: 'q-1', order: 4, title: '4', isRow: true },
           { surveyId: 'demo-survey', questionId: 'q-1', order: 5, title: '5', isRow: true },
-          { surveyId: 'demo-survey', questionId: 'q-2', order: 1, title: 'Quality', isRow: true },
-          { surveyId: 'demo-survey', questionId: 'q-2', order: 2, title: 'Service', isRow: true },
-          { surveyId: 'demo-survey', questionId: 'q-2', order: 3, title: 'Price', isRow: true },
-          { surveyId: 'demo-survey', questionId: 'q-3', order: 1, title: 'Long answer', isRow: true },
+          { surveyId: 'demo-survey', questionId: 'q-2', order: 1, title: '', isRow: true },
+          { surveyId: 'demo-survey', questionId: 'q-2', order: 2, title: '', isRow: true },
+          { surveyId: 'demo-survey', questionId: 'q-2', order: 3, title: '', isRow: true },
         ];
         break;
 
@@ -587,21 +573,21 @@ const SurveyCreator: React.FC = () => {
             id: `q-${qOrder}`,
             surveyId: 'demo-survey',
             type: qtOpt.value,
-            title: `${qtOpt.label} Example`,
+            title: '',
             order: qOrder,
             isRequired: false,
             basedOnAnswer: false,
-            minLabel: qtOpt.value === QuestionType.LINEAR_SCALE ? 'Min' : '',
-            maxLabel: qtOpt.value === QuestionType.LINEAR_SCALE ? 'Max' : '',
+            minLabel: '',
+            maxLabel: '',
           };
           newQuestions.push(q);
 
           // Add options based on type
           if ([QuestionType.MULTIPLE_CHOICE, QuestionType.CHECKBOXES, QuestionType.DROP_DOWN].includes(qtOpt.value)) {
             newOptions.push(
-              { surveyId: 'demo-survey', questionId: q.id, order: 1, title: 'Option 1', isRow: true },
-              { surveyId: 'demo-survey', questionId: q.id, order: 2, title: 'Option 2', isRow: true },
-              { surveyId: 'demo-survey', questionId: q.id, order: 3, title: 'Option 3', isRow: true }
+              { surveyId: 'demo-survey', questionId: q.id, order: 1, title: '', isRow: true },
+              { surveyId: 'demo-survey', questionId: q.id, order: 2, title: '', isRow: true },
+              { surveyId: 'demo-survey', questionId: q.id, order: 3, title: '', isRow: true }
             );
           } else if (qtOpt.value === QuestionType.LINEAR_SCALE) {
             for (let i = 1; i <= 5; i++) {
@@ -609,13 +595,11 @@ const SurveyCreator: React.FC = () => {
             }
           } else if ([QuestionType.RADIO_GRID, QuestionType.CHECKBOX_GRID].includes(qtOpt.value)) {
             newOptions.push(
-              { surveyId: 'demo-survey', questionId: q.id, order: 1, title: 'Row 1', isRow: true },
-              { surveyId: 'demo-survey', questionId: q.id, order: 2, title: 'Row 2', isRow: true },
-              { surveyId: 'demo-survey', questionId: q.id, order: 101, title: 'Column 1', isRow: false },
-              { surveyId: 'demo-survey', questionId: q.id, order: 102, title: 'Column 2', isRow: false }
+              { surveyId: 'demo-survey', questionId: q.id, order: 1, title: '', isRow: true },
+              { surveyId: 'demo-survey', questionId: q.id, order: 2, title: '', isRow: true },
+              { surveyId: 'demo-survey', questionId: q.id, order: 101, title: '', isRow: false },
+              { surveyId: 'demo-survey', questionId: q.id, order: 102, title: '', isRow: false }
             );
-          } else {
-            newOptions.push({ surveyId: 'demo-survey', questionId: q.id, order: 1, title: 'Answer', isRow: true });
           }
 
           qOrder++;
@@ -647,7 +631,7 @@ const SurveyCreator: React.FC = () => {
         surveyId: 'demo-survey',
         questionId: newQuestion.id,
         order: 1,
-        title: 'Option 1',
+        title: '',
         isRow: true,
       },
     ]);
@@ -680,7 +664,7 @@ const SurveyCreator: React.FC = () => {
     
     if ([QuestionType.MULTIPLE_CHOICE, QuestionType.CHECKBOXES, QuestionType.DROP_DOWN].includes(newType)) {
       newOptions = [
-        { surveyId: 'demo-survey', questionId, order: 1, title: 'Option 1', isRow: true },
+        { surveyId: 'demo-survey', questionId, order: 1, title: '', isRow: true },
       ];
     } else if (newType === QuestionType.LINEAR_SCALE) {
       for (let i = 1; i <= 5; i++) {
@@ -688,11 +672,9 @@ const SurveyCreator: React.FC = () => {
       }
     } else if ([QuestionType.RADIO_GRID, QuestionType.CHECKBOX_GRID].includes(newType)) {
       newOptions = [
-        { surveyId: 'demo-survey', questionId, order: 1, title: 'Row 1', isRow: true },
-        { surveyId: 'demo-survey', questionId, order: 101, title: 'Column 1', isRow: false },
+        { surveyId: 'demo-survey', questionId, order: 1, title: '', isRow: true },
+        { surveyId: 'demo-survey', questionId, order: 101, title: '', isRow: false },
       ];
-    } else {
-      newOptions = [{ surveyId: 'demo-survey', questionId, order: 1, title: 'Answer', isRow: true }];
     }
 
     setOptions([...filteredOptions, ...newOptions]);
@@ -842,13 +824,13 @@ const SurveyCreator: React.FC = () => {
         {isInitialized && (
           <>
             {/* Back button */}
-            <div className="mb-6 flex justify-between items-center">
+            <div className="mb-6 flex flex-col-reverse md:flex-row md:justify-between md:items-center gap-4">
               <div className="text-body-text">
                 <span className="font-semibold">{survey.title}</span>
               </div>
               <button
                 onClick={() => setIsInitialized(false)}
-                className="px-4 py-2 bg-brand-800 text-white rounded-full hover:bg-brand-900 transition-colors shadow-md"
+                className="px-4 py-2 bg-brand-800 text-white rounded-full hover:bg-brand-900 transition-colors shadow-md whitespace-nowrap"
               >
                 ← Choose Another Template
               </button>
