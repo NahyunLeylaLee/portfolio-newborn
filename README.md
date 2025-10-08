@@ -1,4 +1,4 @@
-# NewbornTrack Interactive Demo
+# NewbornTrack Demo
 
 A modern, responsive website showcasing the NewbornTrack hospital health-tracking platform with smooth scrolling animations and modular React components.
 

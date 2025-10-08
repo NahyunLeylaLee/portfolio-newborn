@@ -19,7 +19,7 @@ const GuestExperience = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-4xl lg:text-6xl font-bold text-heading-dark leading-tight"
             >
-              NewbornTrack Interactive Demo
+              NewbornTrack Demo
             </motion.h1>
             
             <motion.p

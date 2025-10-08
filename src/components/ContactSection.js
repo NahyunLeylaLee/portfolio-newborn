@@ -107,7 +107,7 @@ const ContactSection = () => {
             className="pt-16 border-t border-brand-300/20"
           >
             <p className="text-brand-200 text-sm">
-              © 2025 NewbornTrack Interactive Demo. All Rights Reserved.
+              © 2025 NewbornTrack Demo. All Rights Reserved.
             </p>
           </motion.div>
         </motion.div>

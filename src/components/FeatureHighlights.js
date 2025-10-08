@@ -121,35 +121,6 @@ const FeatureHighlights = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Additional info section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <div className="bg-gradient-to-r from-brand-50 to-brand-100 rounded-2xl p-8 border border-brand-200">
-            <motion.div
-              initial={{ scale: 0.9 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.5 }}
-              className="inline-flex items-center justify-center w-16 h-16 bg-brand-800 rounded-full mb-4"
-            >
-              <svg className="w-8 h-8 text-page-bg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </motion.div>
-            <h3 className="text-2xl font-bold text-heading-dark mb-3">
-              Advanced Healthcare Technology
-            </h3>
-            <p className="text-body-text max-w-2xl mx-auto">
-              Our platform integrates cutting-edge technology with compassionate care, 
-              providing healthcare professionals with the tools they need to deliver exceptional patient outcomes.
-            </p>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

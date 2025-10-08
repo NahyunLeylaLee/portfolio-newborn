@@ -38,7 +38,7 @@ const Header = ({ currentSection = 0 }) => {
             whileHover={{ scale: 1.05 }}
             onClick={() => handleNavClick(0)}
           >
-            NewbornTrack Interactive Demo
+            NewbornTrack Demo
           </motion.h1>
           
           <nav className="hidden md:flex items-center space-x-8">
