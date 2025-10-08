@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/portfolio-newborn/static/css/main.42843a10.css",
+    "main.js": "/portfolio-newborn/static/js/main.fd776af9.js",
+    "index.html": "/portfolio-newborn/index.html",
+    "main.42843a10.css.map": "/portfolio-newborn/static/css/main.42843a10.css.map",
+    "main.fd776af9.js.map": "/portfolio-newborn/static/js/main.fd776af9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.42843a10.css",
+    "static/js/main.fd776af9.js"
+  ]
+}
