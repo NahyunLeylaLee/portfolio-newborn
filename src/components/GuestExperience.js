@@ -28,7 +28,7 @@ const GuestExperience = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-xl text-body-text max-w-3xl mx-auto leading-relaxed"
             >
-              A newborn health-tracking platform used at Bundang CHA Hospital.
+              A newborn health-tracking platform used at Bundang CHA Hospital.<br />
               Experience the system from three perspectives: <strong>Guest</strong>, <strong>Patient</strong>, and <strong>Admin</strong>.
             </motion.p>
           </motion.div>
