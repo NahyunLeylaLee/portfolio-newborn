@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import GuestExperience from './components/GuestExperience';
 import PatientExperience from './components/PatientExperience';
 import AdminExperience from './components/AdminExperience';
 import FeatureHighlights from './components/FeatureHighlights';
 import ContactSection from './components/ContactSection';
+import SurveyCreator from './components/SurveyCreator';
 
-function App() {
+function MainPage() {
+  const location = useLocation();
   const containerRef = useRef(null);
   const sectionsRef = useRef([]);
   const [currentSection, setCurrentSection] = useState(0);
@@ -39,6 +42,16 @@ function App() {
 
     // Expose scrollToSection to window for Header component
     window.scrollToSection = scrollToSection;
+
+    // Check if navigated from Survey Creator with section state
+    if (location.state?.scrollToSection !== undefined) {
+      const targetSection = location.state.scrollToSection;
+      setTimeout(() => {
+        scrollToSection(targetSection);
+      }, 100);
+      // Clear the state
+      window.history.replaceState({}, document.title);
+    }
 
     const handleWheel = (e) => {
       // Disable section snapping on mobile
@@ -79,7 +92,7 @@ function App() {
       container.removeEventListener('wheel', handleWheel);
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [currentSection]);
+  }, [currentSection, location.state]);
 
   const addToRefs = (el) => {
     if (el && !sectionsRef.current.includes(el)) {
@@ -108,6 +121,17 @@ function App() {
         </div>
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router basename="/portfolio-newborn">
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/survey-creator" element={<SurveyCreator />} />
+      </Routes>
+    </Router>
   );
 }
 
