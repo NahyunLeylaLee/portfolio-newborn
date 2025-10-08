@@ -32,6 +32,10 @@ body {
   padding-top: 80px; /* Account for fixed header */
 }
 
+.section-container:last-child {
+  padding-top: 0; /* Remove top padding for last section (Contact) */
+}
+
 .scroll-container {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
