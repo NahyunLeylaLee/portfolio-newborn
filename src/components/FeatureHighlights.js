@@ -98,8 +98,8 @@ const FeatureHighlights = () => {
               }}
               className="group"
             >
-              <div className="bg-page-bg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-brand-100 overflow-hidden">
-                <div className="h-32 bg-gradient-to-br from-brand-100 to-brand-200 flex items-center justify-center">
+              <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-brand-200 overflow-hidden">
+                <div className="h-32 bg-gradient-to-br from-brand-200 to-brand-300 flex items-center justify-center">
                   <motion.div
                     initial={{ scale: 0.8 }}
                     whileInView={{ scale: 1 }}

@@ -5,7 +5,7 @@ const GuestExperience = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-brand-50 flex items-center justify-center px-6 py-20">
+      <section className="bg-page-bg flex items-center justify-center px-6 py-20">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -36,7 +36,7 @@ const GuestExperience = () => {
       </section>
 
       {/* Guest Experience Section */}
-      <section className="bg-brand-50 flex items-center justify-center px-6 py-20">
+      <section className="bg-page-bg flex items-center justify-center px-6 py-20">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Screenshot placeholder */}
           <motion.div
@@ -46,9 +46,13 @@ const GuestExperience = () => {
             viewport={{ once: true }}
             className="order-2 lg:order-1"
           >
-            <div className="bg-gray-50 rounded-2xl shadow-lg p-4 border border-gray-200">
-              <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center">
-                <span className="text-gray-500 text-sm font-medium">Guest view screenshot</span>
+            <div className="bg-page-bg rounded-2xl shadow-lg p-4 border border-brand-200">
+              <div className="aspect-video rounded-xl overflow-hidden">
+                <img 
+                  src="/images/newborn track.jpg" 
+                  alt="NewbornTrack website screenshot showing header with logo, navigation menu, hero section with baby hand image, and recent news cards"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </motion.div>
@@ -86,13 +90,16 @@ const GuestExperience = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="pt-4"
             >
-              <motion.button
+              <motion.a
+                href="https://newborntrack.org/"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-brand-800 text-page-bg font-semibold rounded-lg shadow-lg hover:bg-brand-900 transition-colors"
+                className="inline-block px-12 py-4 bg-brand-800 text-white font-semibold rounded-full shadow-lg hover:bg-brand-900 transition-colors"
               >
                 Visit Live Site
-              </motion.button>
+              </motion.a>
             </motion.div>
           </motion.div>
         </div>

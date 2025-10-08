@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const AdminExperience = () => {
   return (
-    <section className="min-h-screen bg-brand-50 flex items-center justify-center px-6 py-20">
+    <section className="min-h-screen bg-page-bg flex items-center justify-center px-6 py-20">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* Left side - Dashboard screenshot */}
         <motion.div
@@ -13,21 +13,13 @@ const AdminExperience = () => {
           viewport={{ once: true }}
           className="order-2 lg:order-1"
         >
-          <div className="bg-page-bg rounded-2xl shadow-xl p-8 border border-brand-100">
-            <div className="aspect-video bg-gradient-to-br from-brand-100 to-brand-200 rounded-xl flex items-center justify-center">
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="text-center"
-              >
-                <div className="w-16 h-16 bg-brand-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-page-bg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
-                </div>
-                <p className="text-brand-800 font-medium">Admin Dashboard Screenshot</p>
-              </motion.div>
+          <div className="bg-white rounded-2xl shadow-xl p-8 border border-brand-100">
+            <div className="aspect-video rounded-xl overflow-hidden">
+              <img 
+                src="/images/newborn survey create.jpg" 
+                alt="Admin Dashboard Screenshot showing survey creation interface"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </motion.div>
@@ -68,7 +60,7 @@ const AdminExperience = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-brand-800 hover:bg-brand-900 text-page-bg px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="bg-brand-800 hover:bg-brand-900 text-white px-12 py-4 rounded-full font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
               >
                 Try Creating Survey
               </motion.button>

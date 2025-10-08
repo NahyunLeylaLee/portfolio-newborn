@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const PatientExperience = () => {
   return (
-    <section className="min-h-screen bg-brand-50 flex items-center justify-center px-6 py-20">
+    <section className="min-h-screen bg-page-bg flex items-center justify-center px-6 py-20">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* Left side - Content */}
         <motion.div
@@ -40,7 +40,7 @@ const PatientExperience = () => {
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-brand-800 hover:bg-brand-900 text-page-bg px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="bg-brand-800 hover:bg-brand-900 text-white px-12 py-4 rounded-full font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               Try Sample Survey
             </motion.button>

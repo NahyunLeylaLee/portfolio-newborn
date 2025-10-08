@@ -7,30 +7,30 @@ module.exports = {
     extend: {
       colors: {
         // Overall page background and main text colors
-        'page-bg': '#FDFBF7', // Very light, creamy beige
-        'heading-dark': '#332B22', // Dark brown for main headings
-        'body-text': '#6B5E52',    // Muted brown/gray for body text
+        'page-bg': '#FDFBF7', // Very light, creamy beige (main background)
+        'heading-dark': '#2D1B1B', // Dark brown for main headings
+        'body-text': '#5A4A3A',    // Muted brown/gray for body text
 
-        // Primary brand color: Dark Brown (for buttons, strong accents, main elements)
+        // Primary brand color: Dark Brown/Amber (for buttons, strong accents, main elements)
         brand: {
-          50: '#F8F5F0', // Very light shade, almost white
-          100: '#EFEAE4', // Light beige, for card backgrounds, subtle elements
-          200: '#DCD4C9',
-          300: '#C7BBAF',
-          400: '#B2A295',
-          500: '#9D897B',
-          600: '#887061',
-          700: '#735747',
-          800: '#5C4033', // Main dark brown
-          900: '#473127',
-          950: '#33231C',
+          50: '#FDFBF7', // Cream beige (section backgrounds)
+          100: '#FFFFFF', // White (card backgrounds)
+          200: '#F5F1EB', // Light beige (borders, subtle elements)
+          300: '#E8DDD4', // Medium beige (borders, icon backgrounds)
+          400: '#D4C4B0', // Warm beige
+          500: '#B8A082', // Medium brown
+          600: '#9C7C5A', // Darker brown
+          700: '#8B6F47', // Dark brown
+          800: '#772D08', // Main dark brown (buttons, text) - custom color
+          900: '#8B3509', // Lighter brown for hover
+          950: '#2D1B1B', // Very dark brown
         },
         // Accent colors for specific elements (e.g., pricing highlight, icons)
-        'accent-yellow': '#FDF0D5',
-        'accent-orange': '#FCE0D0', 
-        'accent-blue': '#D0E0F0',
-        'accent-purple': '#E0D0F0',
-        'accent-green': '#D4E7D4',
+        'accent-yellow': '#F4E4BC', // Warm yellow/amber
+        'accent-orange': '#E8C4A0', // Warm orange/amber
+        'accent-blue': '#C8D5E0', // Muted blue
+        'accent-purple': '#D4C8E0', // Muted purple
+        'accent-green': '#C8D4C0', // Muted green
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
