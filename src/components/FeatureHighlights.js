@@ -34,9 +34,9 @@ const FeatureHighlights = () => {
       color: "from-pink-400 to-pink-600"
     },
     {
-      title: "Mobile",
-      icon: "📱",
-      description: "Mobile-friendly interface",
+      title: "Message",
+      icon: "💬",
+      description: "Send surveys via text/email", // Send surveys via text or email
       color: "from-indigo-400 to-indigo-600"
     }
   ];
