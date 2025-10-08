@@ -4,33 +4,33 @@ import { motion } from 'framer-motion';
 const FeatureHighlights = () => {
   const features = [
     {
-      title: "Dashboard",
+      title: "History",
       icon: "📊",
-      description: "Real-time monitoring and analytics",
+      description: "Real-time survey tracking",
       color: "from-blue-400 to-blue-600"
     },
     {
-      title: "Reports",
+      title: "Data Export",
       icon: "📋",
-      description: "Comprehensive health reports",
+      description: "Health data export",
       color: "from-green-400 to-green-600"
     },
     {
-      title: "Alerts",
+      title: "Alarm",
       icon: "🔔",
-      description: "Smart notification system",
+      description: "Automated reminder system",
       color: "from-yellow-400 to-yellow-600"
     },
     {
       title: "Data",
       icon: "💾",
-      description: "Secure data management",
+      description: "Manage user profiles",
       color: "from-purple-400 to-purple-600"
     },
     {
-      title: "Charts",
+      title: "Records",
       icon: "📈",
-      description: "Visual health trends",
+      description: "Track survey responses",
       color: "from-pink-400 to-pink-600"
     },
     {
@@ -76,7 +76,7 @@ const FeatureHighlights = () => {
             Feature Highlights
           </h2>
           <p className="text-lg text-body-text max-w-3xl mx-auto">
-            Explore screenshots of dashboards, report generation, notifications, and other system features.
+            Highlights survey tracking, data export, automated reminders, user management, response records, and mobile interface.
           </p>
         </motion.div>
 
@@ -91,8 +91,8 @@ const FeatureHighlights = () => {
             <motion.div
               key={feature.title}
               variants={itemVariants}
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 y: -5,
                 transition: { duration: 0.2 }
               }}

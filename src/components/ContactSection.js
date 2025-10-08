@@ -69,7 +69,7 @@ const ContactSection = () => {
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-4 lg:space-y-0">
             {/* Logo and Copyright */}
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-brand-800 rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 flex-shrink-0 bg-brand-800 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-sm">NL</span>
               </div>
               <div>
