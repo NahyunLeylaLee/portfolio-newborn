@@ -38,7 +38,7 @@ npm install
 npm start
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. Open [https://nahyunleylalee.github.io/portfolio-newborn/](https://nahyunleylalee.github.io/portfolio-newborn/) to view it in the browser.
 
 ### Available Scripts
 
