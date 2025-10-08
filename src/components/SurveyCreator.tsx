@@ -433,7 +433,7 @@ const SurveyCreator: React.FC = () => {
   // ============================================================================
 
   const handleBackToMain = () => {
-    navigate('/', { state: { scrollToSection: 2 } }); // Admin Experience is section 2
+    navigate('/');
   };
 
   const loadTemplate = (templateType: string) => {

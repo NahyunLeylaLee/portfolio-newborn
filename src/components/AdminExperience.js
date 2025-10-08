@@ -17,7 +17,7 @@ const AdminExperience = () => {
           <div className="bg-white rounded-2xl shadow-xl p-8 border border-brand-100">
             <div className="aspect-video rounded-xl overflow-hidden">
               <img
-                src="/portfolio-newborn/images/newborn survey create.jpg"
+                src="/portfolio-newborn/images/survey_demo.jpg"
                 alt="Admin Dashboard Screenshot showing survey creation interface"
                 className="w-full h-full object-cover"
               />

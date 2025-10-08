@@ -35,12 +35,14 @@ body {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100vh;
+  scroll-behavior: smooth;
 }
 
 /* Disable scroll snap on mobile */
 @media (max-width: 767px) {
   .scroll-container {
     scroll-snap-type: none;
+    scroll-behavior: smooth;
   }
   
   .section-container {
